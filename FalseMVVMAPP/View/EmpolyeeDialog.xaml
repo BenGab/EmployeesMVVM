@@ -1,0 +1,29 @@
+﻿<Window x:Class="FalseMVVMAPP.View.EmpolyeeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FalseMVVMAPP.View"
+        mc:Ignorable="d"
+        Title="EmpolyeeDialog" Height="450" Width="800"
+        DataContext="{Binding Path=EmployeeDialogVM, Source={x:Static Application.Current}}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Name:" />
+        <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Grid.Column="1" />
+        <TextBlock Text="Taj:" Grid.Row="1" />
+        <TextBox Text="{Binding Path=Taj, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Grid.Row="1" Grid.Column="1" />
+        <TextBlock Text="Salary:" Grid.Row="2" />
+        <TextBox Text="{Binding Path=Salary, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" Grid.Row="2" Grid.Column="1" />
+        <Button Content="Save" Grid.Row="3"/>
+    </Grid>
+</Window>

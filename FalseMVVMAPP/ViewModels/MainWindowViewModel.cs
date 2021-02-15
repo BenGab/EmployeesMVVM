@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace FalseMVVMAPP.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel
     {
-        private ICollection<EmployeeViewModel> _employees;
+        private ObservableCollection<EmployeeViewModel> _employees;
 
-        public ICollection<EmployeeViewModel> Employees
+        public ObservableCollection<EmployeeViewModel> Employees
         {
             get { return _employees; }
             set 
@@ -22,7 +23,7 @@ namespace FalseMVVMAPP.ViewModels
 
         public MainWindowViewModel()
         {
-            _employees = new List<EmployeeViewModel>()
+            _employees = new ObservableCollection<EmployeeViewModel>()
             {
                 new EmployeeViewModel()
                 {

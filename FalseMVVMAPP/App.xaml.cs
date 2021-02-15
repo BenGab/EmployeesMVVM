@@ -22,5 +22,12 @@ namespace FalseMVVMAPP
         }
         public MainWindowViewModel MainVindowVM { get; private set; }
 
+        public EmployeeViewModel EmployeeDialogVM
+        {
+            get
+            {
+                return new EmployeeViewModel();
+            }
+        }
     }
 }
