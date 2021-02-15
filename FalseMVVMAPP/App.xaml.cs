@@ -14,10 +14,13 @@ namespace FalseMVVMAPP
     /// </summary>
     public partial class App : Application
     {
-        public MainWindowViewModel MainVindowVM
+        private MainWindowViewModel _vm;
+        public App()
         {
-            get
-            { return new MainWindowViewModel(); }
+            _vm = new MainWindowViewModel();
+            MainVindowVM = _vm;
         }
+        public MainWindowViewModel MainVindowVM { get; private set; }
+
     }
 }
