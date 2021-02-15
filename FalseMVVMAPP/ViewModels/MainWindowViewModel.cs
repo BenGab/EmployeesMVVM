@@ -33,6 +33,8 @@ namespace FalseMVVMAPP.ViewModels
             }
         }
 
+        private decimal Avg = 0;
+
 
         public MainWindowViewModel()
         {
@@ -45,12 +47,22 @@ namespace FalseMVVMAPP.ViewModels
                     Salary = 200000
                 }
             };
+
+            _employees.CollectionChanged += (s, e) => SetAvg();
         }
 
         public void DeleteSelectedItem()
         {
             Employees.Remove(SelectedEmployee);
             SelectedEmployee = null;
+        }
+
+        public void SetAvg()
+        {
+            if (Employees.Count > 0)
+            {
+                Avg = Employees.Average(x => x.Salary);
+            }
         }
     }
 }

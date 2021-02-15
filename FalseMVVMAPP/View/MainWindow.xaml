@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FalseMVVMAPP"
+        xmlns:converters="clr-namespace:FalseMVVMAPP.Converters"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding Path=MainVindowVM, Source={x:Static Application.Current}}">
+    <Window.Resources>
+        <converters:AverageCheckConverter x:Key="AvgConverter" />
+    </Window.Resources>
     <StackPanel>
         <ListBox Height="200" ItemsSource="{Binding Path=Employees}" SelectedItem="{Binding Path=SelectedEmployee, Mode=TwoWay}">
             <ListBox.ItemTemplate>
@@ -19,7 +23,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Path=Name}" />
                         <TextBlock Text="{Binding Path=Taj}" Grid.Column="1" />
-                        <TextBlock Text="{Binding Path=Salary}" Grid.Column="2" />
+                        <TextBlock Text="{Binding Path=Salary}" Grid.Column="2" Foreground="{Binding Path=Salary, Converter={StaticResource AvgConverter}}" />
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
