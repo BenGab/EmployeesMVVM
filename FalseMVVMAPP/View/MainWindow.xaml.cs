@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FalseMVVMAPP.View;
+using FalseMVVMAPP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,23 @@ namespace FalseMVVMAPP
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            EmpolyeeDialog dlg = new EmpolyeeDialog();
+            if(dlg.ShowDialog() == true)
+            {
+                MainWindowViewModel vm = (MainWindowViewModel)DataContext;
+                EmployeeViewModel dlgvm = (EmployeeViewModel)dlg.DataContext;
+
+                vm.Employees.Add(dlgvm);
+            }
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindowViewModel)DataContext).DeleteSelectedItem();
         }
     }
 }

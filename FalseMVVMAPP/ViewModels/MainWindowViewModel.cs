@@ -21,6 +21,19 @@ namespace FalseMVVMAPP.ViewModels
             }
         }
 
+        private EmployeeViewModel _selectEmploye;
+
+        public EmployeeViewModel SelectedEmployee
+        {
+            get { return _selectEmploye; }
+            set 
+            { 
+                _selectEmploye = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+
         public MainWindowViewModel()
         {
             _employees = new ObservableCollection<EmployeeViewModel>()
@@ -32,6 +45,12 @@ namespace FalseMVVMAPP.ViewModels
                     Salary = 200000
                 }
             };
+        }
+
+        public void DeleteSelectedItem()
+        {
+            Employees.Remove(SelectedEmployee);
+            SelectedEmployee = null;
         }
     }
 }

@@ -44,6 +44,5 @@ namespace FalseMVVMAPP.ViewModels
                 NotifyPropertyChanged();
             }
         }
-
     }
 }
