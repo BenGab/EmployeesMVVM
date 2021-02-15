@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FalseMVVMAPP.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,10 @@ namespace FalseMVVMAPP
     /// </summary>
     public partial class App : Application
     {
+        public MainWindowViewModel MainVindowVM
+        {
+            get
+            { return new MainWindowViewModel(); }
+        }
     }
 }
